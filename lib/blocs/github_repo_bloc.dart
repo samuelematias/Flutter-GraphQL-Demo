@@ -1,4 +1,5 @@
 import 'package:graph_ql_poc/data_models/github_repo_model.dart';
+import 'package:graph_ql_poc/providers/github_repo_provider.dart';
 import 'package:graph_ql_poc/view_models/github_repo_model.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
@@ -6,7 +7,7 @@ import 'package:rxdart/rxdart.dart';
 
 class GitHubRepoBLoC {
   final repoList = BehaviorSubject<List<GitHubRepoModel>>();
-  final gitHubRepo;
+  final GitHubRepoProvider gitHubRepo;
 
   GitHubRepoBLoC({
     @required this.gitHubRepo,
