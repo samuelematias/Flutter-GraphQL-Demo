@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graph_ql_poc/blocs/github_repo_bloc.dart';
-import 'package:graph_ql_poc/models/view_model/github_repo_model.dart';
+import 'package:graph_ql_poc/view_models/github_repo_model.dart';
 import 'package:provider/provider.dart';
 
 class GitHubRepoWidget extends StatelessWidget {

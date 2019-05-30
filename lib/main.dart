@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graph_ql_poc/blocs/github_repo_bloc.dart';
+import 'package:graph_ql_poc/providers/github_repo_provider.dart';
 import 'package:graph_ql_poc/ui/github_repo_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +20,10 @@ class MyApp extends StatelessWidget {
           title: Text('GraphQL Demo'),
         ),
         body: Provider<GitHubRepoBLoC>(
-          builder: (_) => GitHubRepoBLoC(),
+          builder: (_) =>
+              GitHubRepoBLoC(
+                gitHubRepo: GitHubRepoProvider(),
+              ),
           dispose: (_, bloc) => bloc.dispose(),
           child: GitHubRepoWidget(),
         ),
