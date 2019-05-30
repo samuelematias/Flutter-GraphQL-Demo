@@ -1,22 +1,24 @@
-import 'package:graph_ql_poc/models/github_repo_model.dart';
-import 'package:graph_ql_poc/models/view_model/github_repo_model.dart';
-import 'package:graph_ql_poc/providers/github_repo_provider.dart';
+import 'package:graph_ql_poc/data_models/github_repo_model.dart';
+import 'package:graph_ql_poc/view_models/github_repo_model.dart';
 import 'package:intl/intl.dart';
+import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 
 class GitHubRepoBLoC {
   final repoList = BehaviorSubject<List<GitHubRepoModel>>();
-  final _gitHubRepo = GitHubRepoProvider();
+  final gitHubRepo;
 
-  GitHubRepoBLoC() {
-    _getRepos()
+  GitHubRepoBLoC({
+    @required this.gitHubRepo,
+  }) {
+    getRepos()
         .then(toViewModel)
-        .then((list) => repoList.value = list)
+        .then(repoList.add)
         .catchError((err) => print('Error getting repo $err'));
   }
 
-  Future<List<GithubRepo>> _getRepos() {
-    return _gitHubRepo.getCurrentUserRepos();
+  Future<List<GithubRepo>> getRepos() {
+    return gitHubRepo.getCurrentUserRepos();
   }
 
   List<GitHubRepoModel> toViewModel(List<GithubRepo> dataModelList) {

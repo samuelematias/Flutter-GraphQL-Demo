@@ -1,4 +1,4 @@
-import 'package:graph_ql_poc/models/github_repo_model.dart';
+import 'package:graph_ql_poc/data_models/github_repo_model.dart';
 import 'package:graph_ql_poc/network_utils/graphql_client.dart';
 import 'package:graphql/client.dart';
 
