@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graph_ql_poc/blocs/github_repo_bloc.dart';
-import 'package:graph_ql_poc/models/github_repo_model.dart';
-import 'package:intl/intl.dart';
+import 'package:graph_ql_poc/models/view_model/github_repo_model.dart';
 import 'package:provider/provider.dart';
 
 class GitHubRepoWidget extends StatelessWidget {
@@ -16,18 +15,20 @@ class GitHubRepoWidget extends StatelessWidget {
           );
         }
 
-        final list = repoSnapshot.data as List<GithubRepo>;
+        final list = repoSnapshot.data as List<GitHubRepoModel>;
 
         return ListView.separated(
           itemCount: list.length,
           itemBuilder: (context, index) {
             return ListTile(
-              title: Text(list[index].name),
+              title: Text(
+                list[index].repoName,
+              ),
               subtitle: Text(
-                'Created At: ${DateFormat('dd-MM-yyyy').format(list[index].createdAt)}',
+                list[index].creationDate,
               ),
               trailing: Text(
-                'Fork Count:\n${list[index].forkCount}',
+                list[index].forkCount,
                 textAlign: TextAlign.center,
               ),
             );
