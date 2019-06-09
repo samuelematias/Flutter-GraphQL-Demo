@@ -1,6 +1,6 @@
 # Flutter GraphQL Demo
 
-This is demo Application for GraphQL implementation in Flutter using
+This application shows demo of GraphQL implementation in Flutter using
 [GraphQL Client](https://pub.dev/packages/graphql)
 
 ## Getting Started
